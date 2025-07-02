@@ -17,9 +17,9 @@ jobs:
   test: 
     runs-on: ubuntu-latest
     needs: quality-check
-      steps:
-        - name: test quality
-          uses: actions/checkout@v4
+    steps:
+      - name: test quality
+        uses: actions/checkout@v4
       # - run: npm test
 
 # jobs: 
