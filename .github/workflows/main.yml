@@ -36,6 +36,12 @@ jobs:
       - name: Build docker image
         run: docker build . --file ./Dockerfile --tag angular-todos-app:$TAG_DYNAMIC --tag angular-todos-app:latest
 
+      - name: login to dockerhub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
       - name: push image to Dockerhub
         run: | 
           docker push $IMG_NAME:$TAG_DYNAMIC 
