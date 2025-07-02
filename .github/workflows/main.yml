@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
     # TAG_DYNAMIC: main-1234567
-      TAG_DYNAMIC: §{{ github.ref_name }}-§{{ github.run_id }}
+      TAG_DYNAMIC: ${{ github.ref_name }}-${{ github.run_id }}
     steps:
       - name: Build docker image
         run: docker build . --file Dockerfile --tag angular-todos-app:$TAG_DYNAMIC tag angular-todos-app:latest
